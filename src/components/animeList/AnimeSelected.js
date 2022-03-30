@@ -22,10 +22,10 @@ const AnimeSelected = () => {
         <p>
           <span>Popularity Ranking:</span> {anime[0].popularity}
         </p>
-        <button>{icon} Add to Favorites!</button>
+        <button>{icon} Add to Faves!</button>
       </div>
       <div>
-        <img src={anime[0].image} alt="" />
+        <img src={anime[0].image} alt="anime cover" />
       </div>
     </div>
   );

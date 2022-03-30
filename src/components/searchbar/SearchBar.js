@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { animeActions } from "../../store/animeSlice";
+import { animeActions } from "../../store/anime-slice";
 import { fetchAnimes } from "../../store/anime-actions";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

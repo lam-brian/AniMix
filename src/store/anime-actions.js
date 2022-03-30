@@ -1,4 +1,4 @@
-import { animeActions } from "./animeSlice";
+import { animeActions } from "./anime-slice";
 
 export const fetchAnimes = (query) => {
   return async (dispatch) => {
