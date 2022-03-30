@@ -14,7 +14,7 @@ const animeSlice = createSlice({
       const animeData = action.payload.map((anime) => ({
         title: anime.attributes.canonicalTitle,
         synopsis: anime.attributes.synopsis,
-        image: anime.attributes.posterImage.medium,
+        image: anime.attributes.posterImage.large,
         popularity: anime.attributes.popularityRank,
         id: anime.id,
       }));

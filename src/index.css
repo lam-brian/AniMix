@@ -38,6 +38,9 @@ h1 {
 
 button {
   cursor: pointer;
+  background: none;
+  border: none;
+  font-family: inherit;
 }
 
 img {

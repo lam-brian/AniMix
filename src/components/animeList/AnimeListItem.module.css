@@ -1,6 +1,12 @@
 .list-item {
   background-color: var(--blue-shade);
   text-align: center;
+  transition: all 0.3s ease-out;
+  height: 46rem;
+}
+
+.list-item:hover {
+  opacity: 50%;
 }
 
 .list-item a:link,
@@ -8,10 +14,14 @@
   color: inherit;
   text-decoration: none;
   font-weight: var(--fw-medium);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .list-item img {
   width: 100%;
+  height: 100%;
 }
 
 .list-item p {

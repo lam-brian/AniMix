@@ -9,7 +9,7 @@ import styles from "./SearchBar.module.css";
 
 const icon = <FontAwesomeIcon icon={faMagnifyingGlass} />;
 
-const SearchBar = (props) => {
+const SearchBar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const query = useSelector((state) => state.anime.query);

@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import AnimeListItem from "./AnimeListItem";
 import styles from "./AnimeList.module.css";
 
-const AnimeList = (props) => {
+const AnimeList = () => {
   const animeData = useSelector((state) => state.anime.animes);
 
   let content = animeData.map((anime) => (

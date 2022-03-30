@@ -1,6 +1,6 @@
 import AnimeList from "../components/animeList/AnimeList";
 
-const SearchedAnimes = (props) => {
+const SearchedAnimes = () => {
   return <AnimeList />;
 };
 

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import SearchBar from "../searchbar/SearchBar";
 import styles from "./MainHeader.module.css";
 
-const MainHeader = (props) => {
+const MainHeader = () => {
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
