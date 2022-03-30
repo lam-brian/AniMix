@@ -1,6 +1,6 @@
 import img from "../images/welcome-img.png";
 
-const Welcome = (props) => {
+const Welcome = () => {
   return (
     <div className="welcome">
       <div>

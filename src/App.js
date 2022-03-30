@@ -10,7 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/welcome" />} />
         <Route path="/welcome" element={<Welcome />} />
-        <Route path="/animes" element={<SearchedAnimes />} />
+        <Route path="/animes/search/:searchId" element={<SearchedAnimes />} />
       </Routes>
     </Layout>
   );

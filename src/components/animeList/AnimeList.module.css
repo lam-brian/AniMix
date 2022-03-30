@@ -1,0 +1,10 @@
+.anime-list {
+  margin-top: 2.4rem;
+}
+
+.anime-list ul {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  list-style: none;
+  gap: 4.8rem;
+}

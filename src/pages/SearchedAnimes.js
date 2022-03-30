@@ -1,5 +1,7 @@
-const Animes = (props) => {
-  return;
+import AnimeList from "../components/animeList/AnimeList";
+
+const SearchedAnimes = (props) => {
+  return <AnimeList />;
 };
 
-export default Animes;
+export default SearchedAnimes;
