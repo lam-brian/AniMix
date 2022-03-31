@@ -1,7 +1,7 @@
 import { animeActions } from "./anime-slice";
 import { uiActions } from "./ui-slice";
 
-export const fetchAnimes = (query) => {
+export const fetchAnimes = (query, id) => {
   return async (dispatch) => {
     dispatch(
       uiActions.setErrorStatus({
@@ -12,11 +12,13 @@ export const fetchAnimes = (query) => {
     dispatch(animeActions.clearAnimes());
 
     const fetchData = async () => {
-      const formattedQuery = query.replace(" ", "%20");
+      let url = `https://kitsu.io/api/edge/anime?page%5Blimit%5D=20&page%5Boffset%5D=0&filter%5Btext%5D=${query}`;
 
-      const res = await fetch(
-        `https://kitsu.io/api/edge/anime?page%5Blimit%5D=10&page%5Boffset%5D=0&filter%5Btext%5D=${formattedQuery}`
-      );
+      if (id) {
+        url = `https://kitsu.io/api/edge/anime?filter%5Bid%5D=${id}`;
+      }
+
+      const res = await fetch(url);
 
       if (!res.ok) {
         throw new Error("Could not fetch anime data!");

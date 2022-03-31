@@ -1,5 +1,6 @@
+import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { animeActions } from "../../store/anime-slice";
 import { fetchAnimes } from "../../store/anime-actions";
 
@@ -10,23 +11,24 @@ import styles from "./SearchBar.module.css";
 const icon = <FontAwesomeIcon icon={faMagnifyingGlass} />;
 
 const SearchBar = () => {
+  const queryRef = useRef();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const query = useSelector((state) => state.anime.query);
 
   const submitFormHandler = (e) => {
     e.preventDefault();
 
+    const query = queryRef.current.value;
     if (!query) return;
 
     dispatch(fetchAnimes(query));
-    dispatch(animeActions.getQuery(""));
+    dispatch(animeActions.getQuery(query));
     navigate(`/animes/search/${query}`);
   };
 
-  const inputChangeHandler = (e) => {
-    dispatch(animeActions.getQuery(e.target.value));
-  };
+  // const inputChangeHandler = (e) => {
+  //   dispatch(animeActions.getQuery(e.target.value));
+  // };
 
   return (
     <form className={styles.form} onSubmit={submitFormHandler}>
@@ -34,8 +36,9 @@ const SearchBar = () => {
       <input
         type="text"
         placeholder="Start searching for an anime!"
-        value={query}
-        onChange={inputChangeHandler}
+        // value={query}
+        // onChange={inputChangeHandler}
+        ref={queryRef}
       />
     </form>
   );
