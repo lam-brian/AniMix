@@ -48,3 +48,75 @@ export const fetchAnimes = (query, pageOffset = 0, id) => {
     }
   };
 };
+
+const fetchFaves = async (email, anime, id, type) => {
+  const formattedEmail = email.replace(".", "");
+
+  let url = `https://myanimefaves-default-rtdb.firebaseio.com/faves/${formattedEmail}${
+    id ? `/${id}` : ""
+  }.json`;
+
+  let options;
+
+  if (type === "GET") options = null;
+
+  if (type === "PUT") {
+    options = {
+      method: type,
+      body: JSON.stringify(anime[0]),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+  }
+
+  if (type === "DELETE") {
+    options = {
+      method: type,
+    };
+  }
+  const res = await fetch(url, options);
+
+  if (!res.ok) throw new Error("Error fetching faves");
+
+  const data = await res.json();
+
+  return data;
+};
+
+export const getFaves = (email) => {
+  return async (dispatch) => {
+    try {
+      const animeData = await fetchFaves(email, null, null, "GET");
+      let foramttedAnimeData = [];
+      for (const key in animeData) {
+        foramttedAnimeData.push({ ...animeData[key] });
+      }
+      dispatch(animeActions.updateFaves(foramttedAnimeData));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+export const addFave = (email, anime, id) => {
+  return async (dispatch) => {
+    try {
+      await fetchFaves(email, anime, id, "PUT");
+      dispatch(animeActions.addToFaves(anime[0]));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+export const removeFave = (email, id) => {
+  return async (dispatch) => {
+    try {
+      await fetchFaves(email, null, id, "DELETE");
+      dispatch(animeActions.removeFromFaves(id));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};

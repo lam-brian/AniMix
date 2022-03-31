@@ -5,6 +5,7 @@ const animeSlice = createSlice({
   initialState: {
     query: "",
     animes: [],
+    faves: [],
   },
   reducers: {
     getQuery(state, action) {
@@ -21,8 +22,20 @@ const animeSlice = createSlice({
 
       state.animes = animeData;
     },
+    updateFaves(state, action) {
+      state.faves = action.payload;
+    },
+    addToFaves(state, action) {
+      state.faves.push(action.payload);
+    },
+    removeFromFaves(state, action) {
+      state.faves = state.faves.filter((fave) => fave.id !== action.payload);
+    },
     clearAnimes(state) {
       state.animes = [];
+    },
+    clearFaves(state) {
+      state.faves = [];
     },
   },
 });

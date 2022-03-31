@@ -1,0 +1,11 @@
+.faves ul {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  list-style: none;
+  gap: 4.8rem;
+  margin-bottom: 2.4rem;
+}
+
+.error {
+  font-size: 2rem;
+}

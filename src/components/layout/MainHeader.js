@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../store/login-actions";
+import { animeActions } from "../../store/anime-slice";
 
 import SearchBar from "../searchbar/SearchBar";
 import styles from "./MainHeader.module.css";
@@ -11,6 +12,7 @@ const MainHeader = () => {
 
   const logoutHandler = () => {
     dispatch(logout());
+    dispatch(animeActions.clearFaves());
   };
 
   return (
@@ -31,9 +33,6 @@ const MainHeader = () => {
           </li>
           <li>
             <NavLink to="/my-faves">My Faves</NavLink>
-          </li>
-          <li>
-            <NavLink to="/account">Account</NavLink>
           </li>
           <li>
             <SearchBar />

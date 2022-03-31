@@ -13,18 +13,21 @@ const calculateRemainingTime = (expirationTime) => {
 
 const retrieveStoredToken = () => {
   const storedToken = localStorage.getItem("token");
+  const storedEmail = localStorage.getItem("email");
   const storedExpirationDate = localStorage.getItem("expirationTime");
 
   const remainingTime = calculateRemainingTime(storedExpirationDate);
 
   if (remainingTime <= 60000) {
     localStorage.removeItem("token");
+    localStorage.removeItem("email");
     localStorage.removeItem("expirationTime");
     return null;
   }
 
   return {
     token: storedToken,
+    email: storedEmail,
     duration: remainingTime,
   };
 };
@@ -74,8 +77,11 @@ export const fetchAccount = (isLogin, loginInfo) => {
       const formattedExpirationTime = expirationTime.toISOString();
 
       localStorage.setItem("token", data.idToken);
+      localStorage.setItem("email", loginInfo.email);
       localStorage.setItem("expirationTime", formattedExpirationTime);
-      dispatch(loginActions.logUserIn(data.idToken));
+      dispatch(
+        loginActions.logUserIn({ token: data.idToken, email: loginInfo.email })
+      );
 
       const remainingTime = calculateRemainingTime(formattedExpirationTime);
 
@@ -92,9 +98,13 @@ export const autoLogin = () => {
   return (dispatch) => {
     const tokenData = retrieveStoredToken();
     let initialToken;
+    let initialEmail;
     if (tokenData) {
       initialToken = tokenData.token;
-      dispatch(loginActions.logUserIn(initialToken));
+      initialEmail = tokenData.email;
+      dispatch(
+        loginActions.logUserIn({ token: initialToken, email: initialEmail })
+      );
 
       logoutTimer = setTimeout(() => {
         dispatch(logout());
@@ -106,6 +116,7 @@ export const autoLogin = () => {
 export const logout = () => {
   return (dispatch) => {
     localStorage.removeItem("token");
+    localStorage.removeItem("email");
     localStorage.removeItem("expirationTime");
     dispatch(loginActions.logUserOut());
 
