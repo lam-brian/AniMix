@@ -3,9 +3,19 @@ import { createSlice } from "@reduxjs/toolkit";
 const uiSlice = createSlice({
   name: "ui",
   initialState: {
-    errorStatus: false,
+    errorStatus: {
+      status: false,
+      message: "",
+    },
   },
-  reducers: {},
+  reducers: {
+    setErrorStatus(state, action) {
+      state.errorStatus = {
+        status: action.payload.status,
+        message: action.payload.message,
+      };
+    },
+  },
 });
 
 export const uiActions = uiSlice.actions;

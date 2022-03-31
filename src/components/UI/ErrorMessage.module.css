@@ -1,0 +1,11 @@
+.error {
+  font-size: 3.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error img {
+  width: 550px;
+}

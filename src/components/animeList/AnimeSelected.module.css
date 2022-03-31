@@ -1,6 +1,6 @@
 .anime {
   max-width: 100rem;
-  margin: 2.4rem auto;
+  margin: 0 auto;
   background-color: var(--blue-shade);
   display: grid;
   grid-template-columns: 1fr 1fr;

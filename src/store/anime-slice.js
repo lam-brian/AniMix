@@ -21,6 +21,9 @@ const animeSlice = createSlice({
 
       state.animes = animeData;
     },
+    clearAnimes(state) {
+      state.animes = [];
+    },
   },
 });
 

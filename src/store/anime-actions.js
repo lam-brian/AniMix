@@ -1,7 +1,16 @@
 import { animeActions } from "./anime-slice";
+import { uiActions } from "./ui-slice";
 
 export const fetchAnimes = (query) => {
   return async (dispatch) => {
+    dispatch(
+      uiActions.setErrorStatus({
+        status: false,
+        message: "",
+      })
+    );
+    dispatch(animeActions.clearAnimes());
+
     const fetchData = async () => {
       const formattedQuery = query.replace(" ", "%20");
 
@@ -20,9 +29,19 @@ export const fetchAnimes = (query) => {
 
     try {
       const { data } = await fetchData();
+
+      if (data.length === 0) {
+        throw new Error("No animes found for your query!");
+      }
+
       dispatch(animeActions.getAnimes(data));
     } catch (err) {
-      console.error(err);
+      dispatch(
+        uiActions.setErrorStatus({
+          status: true,
+          message: err.message,
+        })
+      );
     }
   };
 };
