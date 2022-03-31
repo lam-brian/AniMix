@@ -33,7 +33,7 @@ const SearchBar = () => {
 
   return (
     <form className={styles.form} onSubmit={submitFormHandler}>
-      <button>{icon}</button>
+      <button aria-label="search button">{icon}</button>
       <input
         type="text"
         placeholder="Start searching for an anime!"

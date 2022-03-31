@@ -41,10 +41,26 @@ button {
   background: none;
   border: none;
   font-family: inherit;
+  transition: all 0.3s ease-out;
 }
 
 img {
   width: 100%;
+}
+
+input {
+  background: none;
+  border: none;
+  font-family: inherit;
+  color: inherit;
+}
+
+input:focus {
+  outline: none;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.295);
 }
 
 .welcome {

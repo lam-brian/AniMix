@@ -13,7 +13,7 @@
 .logo {
   font-size: 2.6rem;
   font-weight: var(--fw-bold);
-  letter-spacing: 1px;
+  letter-spacing: -1px;
 }
 
 .nav ul {

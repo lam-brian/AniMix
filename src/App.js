@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 
+import Login from "./pages/Login";
 import Welcome from "./pages/Welcome";
 import SearchedAnimes from "./pages/SearchedAnimes";
 import SelectedAnime from "./pages/SelectedAnime";
@@ -10,7 +11,8 @@ function App() {
   return (
     <Layout>
       <Routes>
-        <Route path="/" element={<Navigate to="/welcome" />} />
+        <Route path="/" element={<Navigate to="/login" />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/welcome" element={<Welcome />} />
         <Route path="/animes" element={<Navigate to="/welcome" />} />
         <Route path="/animes/search/:searchId" element={<SearchedAnimes />} />

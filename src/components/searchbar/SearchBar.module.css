@@ -14,18 +14,6 @@
 }
 
 .form input {
-  background: none;
-  border: none;
-  font-family: inherit;
-  color: inherit;
   font-size: 1.6rem;
   max-width: 22rem;
-}
-
-.form input:focus {
-  outline: none;
-}
-
-.form input::placeholder {
-  color: rgba(255, 255, 255, 0.295);
 }

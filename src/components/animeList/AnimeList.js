@@ -33,8 +33,8 @@ const AnimeList = () => {
 
   useEffect(() => {
     if (!clicked) return;
-
     dispatch(fetchAnimes(queryState, pagination.pageOffset));
+    dispatch(uiActions.setClicked(false));
   }, [clicked, queryState, pagination, dispatch]);
 
   const changePageHandler = (type) => {
@@ -49,7 +49,11 @@ const AnimeList = () => {
           <AnimeListItem key={anime.id} data={anime} />
         ))}
       </ul>
-      <div className={styles.pagination}>
+      <div
+        className={`${styles.pagination} ${
+          animeData.length === 0 && styles.hidden
+        }`}
+      >
         <button
           className={`${pagination.page === 1 && styles.hidden}`}
           onClick={changePageHandler.bind(null, "prev")}
