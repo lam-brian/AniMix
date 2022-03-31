@@ -3,4 +3,26 @@
   grid-template-columns: repeat(5, 1fr);
   list-style: none;
   gap: 4.8rem;
+  margin-bottom: 2.4rem;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8.6rem;
+}
+
+.pagination button {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  font-size: 2rem;
+  color: inherit;
+  font-family: inherit;
+}
+
+.hidden {
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
 }

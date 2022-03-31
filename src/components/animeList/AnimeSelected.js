@@ -18,7 +18,7 @@ const AnimeSelected = () => {
 
   useEffect(() => {
     if (query === "") {
-      dispatch(fetchAnimes(null, id));
+      dispatch(fetchAnimes(null, null, id));
     }
   }, [query, dispatch, id]);
 

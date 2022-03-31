@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { animeActions } from "../../store/anime-slice";
 import { fetchAnimes } from "../../store/anime-actions";
+import { uiActions } from "../../store/ui-slice";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
@@ -19,16 +20,16 @@ const SearchBar = () => {
     e.preventDefault();
 
     const query = queryRef.current.value;
+
     if (!query) return;
 
+    dispatch(uiActions.setClicked(false));
+    dispatch(uiActions.resetPage());
     dispatch(fetchAnimes(query));
     dispatch(animeActions.getQuery(query));
     navigate(`/animes/search/${query}`);
+    queryRef.current.value = "";
   };
-
-  // const inputChangeHandler = (e) => {
-  //   dispatch(animeActions.getQuery(e.target.value));
-  // };
 
   return (
     <form className={styles.form} onSubmit={submitFormHandler}>
@@ -36,8 +37,6 @@ const SearchBar = () => {
       <input
         type="text"
         placeholder="Start searching for an anime!"
-        // value={query}
-        // onChange={inputChangeHandler}
         ref={queryRef}
       />
     </form>

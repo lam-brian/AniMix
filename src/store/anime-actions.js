@@ -1,7 +1,7 @@
 import { animeActions } from "./anime-slice";
 import { uiActions } from "./ui-slice";
 
-export const fetchAnimes = (query, id) => {
+export const fetchAnimes = (query, pageOffset = 0, id) => {
   return async (dispatch) => {
     dispatch(
       uiActions.setErrorStatus({
@@ -12,7 +12,7 @@ export const fetchAnimes = (query, id) => {
     dispatch(animeActions.clearAnimes());
 
     const fetchData = async () => {
-      let url = `https://kitsu.io/api/edge/anime?page%5Blimit%5D=20&page%5Boffset%5D=0&filter%5Btext%5D=${query}`;
+      let url = `https://kitsu.io/api/edge/anime?page%5Blimit%5D=20&page%5Boffset%5D=${pageOffset}&filter%5Btext%5D=${query}`;
 
       if (id) {
         url = `https://kitsu.io/api/edge/anime?filter%5Bid%5D=${id}`;
