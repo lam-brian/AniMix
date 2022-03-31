@@ -3,6 +3,7 @@ import { uiActions } from "./ui-slice";
 
 export const fetchAnimes = (query, pageOffset = 0, id) => {
   return async (dispatch) => {
+    dispatch(animeActions.getQuery(query));
     dispatch(
       uiActions.setErrorStatus({
         status: false,

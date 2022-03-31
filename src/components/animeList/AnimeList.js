@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { fetchAnimes } from "../../store/anime-actions";
-import { animeActions } from "../../store/anime-slice";
 import { uiActions } from "../../store/ui-slice";
 
 import AnimeListItem from "./AnimeListItem";
@@ -27,7 +26,6 @@ const AnimeList = () => {
   useEffect(() => {
     if (queryState === "") {
       dispatch(fetchAnimes(query));
-      dispatch(animeActions.getQuery(query));
     }
   }, [queryState, query, dispatch]);
 

@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { animeActions } from "../../store/anime-slice";
 import { fetchAnimes } from "../../store/anime-actions";
 import { uiActions } from "../../store/ui-slice";
 
@@ -26,7 +25,6 @@ const SearchBar = () => {
     dispatch(uiActions.setClicked(false));
     dispatch(uiActions.resetPage());
     dispatch(fetchAnimes(query));
-    dispatch(animeActions.getQuery(query));
     navigate(`/animes/search/${query}`);
     queryRef.current.value = "";
   };

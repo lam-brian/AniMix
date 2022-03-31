@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
 import Login from "./pages/Login";
 import Welcome from "./pages/Welcome";
@@ -6,14 +8,22 @@ import SearchedAnimes from "./pages/SearchedAnimes";
 import SelectedAnime from "./pages/SelectedAnime";
 import Layout from "./components/layout/Layout";
 import NotFound from "./pages/NotFound";
+import { autoLogin } from "./store/login-actions";
 
 function App() {
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector((state) => state.login.isLoggedIn);
+
+  useEffect(() => {
+    dispatch(autoLogin());
+  }, [dispatch]);
+
   return (
     <Layout>
       <Routes>
-        <Route path="/" element={<Navigate to="/login" />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Navigate to="/welcome" />} />
         <Route path="/welcome" element={<Welcome />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/animes" element={<Navigate to="/welcome" />} />
         <Route path="/animes/search/:searchId" element={<SearchedAnimes />} />
         <Route path="/animes/:animeId" element={<SelectedAnime />} />

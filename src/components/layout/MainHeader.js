@@ -1,9 +1,18 @@
 import { NavLink } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../../store/login-actions";
 
 import SearchBar from "../searchbar/SearchBar";
 import styles from "./MainHeader.module.css";
 
 const MainHeader = () => {
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector((state) => state.login.isLoggedIn);
+
+  const logoutHandler = () => {
+    dispatch(logout());
+  };
+
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
@@ -12,20 +21,19 @@ const MainHeader = () => {
         </NavLink>
         <ul>
           <li>
-            <NavLink
-              className={(navData) => (navData.isActive ? styles.active : "")}
-              to="/my-faves"
-            >
-              My Faves
-            </NavLink>
+            {isLoggedIn ? (
+              <NavLink to="/login" onClick={logoutHandler}>
+                Logout
+              </NavLink>
+            ) : (
+              <NavLink to="/login">Login</NavLink>
+            )}
           </li>
           <li>
-            <NavLink
-              className={(navData) => (navData.isActive ? styles.active : "")}
-              to="/account"
-            >
-              Account
-            </NavLink>
+            <NavLink to="/my-faves">My Faves</NavLink>
+          </li>
+          <li>
+            <NavLink to="/account">Account</NavLink>
           </li>
           <li>
             <SearchBar />

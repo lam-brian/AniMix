@@ -1,4 +1,4 @@
-.form {
+.authentication {
   max-width: 50rem;
   padding: 2.4rem 3.2rem;
   margin: 0 auto;
@@ -6,29 +6,29 @@
   border-radius: 0.8rem;
 }
 
-.form h2 {
+.authentication h2 {
   text-align: center;
 }
 
-.form form {
+.authentication form {
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
   margin-bottom: 3.2rem;
 }
 
-.form div {
+.authentication div {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
 }
 
-.form label {
+.authentication label {
   font-size: 2rem;
   font-weight: var(--fw-medium);
 }
 
-.form input {
+.authentication input {
   font-size: 1.8rem;
   padding: 4px 8px;
   background-color: var(--white);
@@ -37,7 +37,7 @@
   font-weight: var(--fw-medium);
 }
 
-.form form button {
+.authentication form button {
   margin-top: 8px;
   font-size: 1.8rem;
   padding: 8px 10px;
@@ -47,7 +47,7 @@
   color: var(--white);
 }
 
-.form button:hover {
+.authentication button:hover {
   opacity: 60%;
 }
 
