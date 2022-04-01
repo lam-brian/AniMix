@@ -38,10 +38,21 @@ const AnimeFaves = () => {
   let content = <ErrorMessage />;
 
   if (faves.length !== 0) {
+    const favesCopy = [...faves];
+    const sortedFaves = favesCopy.sort((a, b) => {
+      if (a.title < b.title) {
+        return -1;
+      }
+      if (a.title > b.title) {
+        return 1;
+      }
+      return 0;
+    });
+
     content = (
       <div className={styles.faves}>
         <ul>
-          {faves.map((fave) => (
+          {sortedFaves.map((fave) => (
             <AnimeListItem key={fave.id} data={fave} />
           ))}
         </ul>
