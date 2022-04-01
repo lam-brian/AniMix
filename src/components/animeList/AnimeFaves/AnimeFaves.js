@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { uiActions } from "../../../store/ui-slice";
+import { animeActions } from "../../../store/anime-slice";
 
 import AnimeListItem from "../AnimeListItem";
 import ErrorMessage from "../../UI/ErrorMessage";
 import styles from "./AnimeFave.module.css";
-import { animeActions } from "../../../store/anime-slice";
 
 const AnimeFaves = () => {
   const dispatch = useDispatch();
