@@ -1,3 +1,7 @@
+.anime-list {
+  color: inherit;
+}
+
 .anime-list ul {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
