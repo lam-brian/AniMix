@@ -49,18 +49,18 @@ const AnimeList = () => {
       </ul>
       <div
         className={`${styles.pagination} ${
-          animeData.length === 0 && styles.hidden
+          animeData.length === 0 ? styles.hidden : ""
         }`}
       >
         <button
-          className={`${pagination.page === 1 && styles.hidden}`}
+          className={pagination.page === 1 ? styles.hidden : ""}
           onClick={changePageHandler.bind(null, "prev")}
         >
           {iconArrowLeft}
           Prev
         </button>
         <button
-          className={`${animeData.length !== 20 && styles.hidden}`}
+          className={animeData.length !== 20 ? styles.hidden : ""}
           onClick={changePageHandler.bind(null, "next")}
         >
           Next
