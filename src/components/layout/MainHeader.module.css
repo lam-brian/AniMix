@@ -40,3 +40,47 @@
 .nav a.logo:hover {
   color: inherit;
 }
+
+/* BELOW 912px */
+@media (max-width: 57em) {
+  .header {
+    padding: 2.4rem 3.2rem;
+  }
+}
+
+/* BELOW 640px */
+@media (max-width: 40em) {
+  .header {
+    padding: 2.4rem;
+  }
+
+  .nav {
+    font-size: 1.8rem;
+  }
+
+  .nav ul {
+    gap: 2.4rem;
+  }
+
+  .logo {
+    font-size: 2.4rem;
+  }
+}
+
+/* BELOW 512px */
+@media (max-width: 32em) {
+  .header {
+    padding: 1.6rem;
+  }
+
+  .nav ul {
+    gap: 1.2rem;
+  }
+}
+
+/* BELOW 416px */
+@media (max-width: 28em) {
+  .nav {
+    font-size: 1.6rem;
+  }
+}

@@ -60,3 +60,23 @@
 .anime button.faved {
   background-color: var(--blue-shader-darkest);
 }
+
+/* BELOW 640px */
+@media (max-width: 40em) {
+  .anime {
+    margin-top: 4.8rem;
+    display: block;
+    font-size: 2rem;
+  }
+
+  .anime span {
+    display: inline-block;
+    margin-top: 3.2rem;
+  }
+
+  .anime div:last-child {
+    display: none;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}

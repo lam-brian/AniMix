@@ -26,3 +26,24 @@
   pointer-events: none;
   opacity: 0;
 }
+
+/* BELOW 1640px */
+@media (max-width: 93em) {
+  .anime-list ul {
+    gap: 3.2rem;
+  }
+}
+
+/* BELOW 1168px */
+@media (max-width: 73em) {
+  .anime-list ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* BELOW 640px */
+@media (max-width: 40em) {
+  .anime-list ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+} ;

@@ -27,3 +27,45 @@
 .list-item p {
   padding: 1.2rem 2.4rem;
 }
+
+/* BELOW 1640px */
+@media (max-width: 93em) {
+  .list-item {
+    height: 42rem;
+  }
+
+  .list-item div {
+    height: 80%;
+  }
+}
+
+/* BELOW 912px */
+@media (max-width: 57em) {
+  .list-item {
+    height: 36rem;
+    overflow: hidden;
+  }
+}
+
+/* BELOW 640px */
+@media (max-width: 40em) {
+  .list-item {
+    height: 42rem;
+    font-size: 1.8rem;
+  }
+
+  .list-item div {
+    height: 85%;
+  }
+}
+
+/* BELOW 416px */
+@media (max-width: 28em) {
+  .list-item {
+    height: 33rem;
+  }
+
+  .list-item div {
+    height: 80%;
+  }
+}

@@ -9,3 +9,24 @@
 .error {
   font-size: 2rem;
 }
+
+/* BELOW 1640px */
+@media (max-width: 93em) {
+  .faves ul {
+    gap: 3.2rem;
+  }
+}
+
+/* BELOW 1168px */
+@media (max-width: 73em) {
+  .faves ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* BELOW 640px */
+@media (max-width: 40em) {
+  .faves ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+} ;

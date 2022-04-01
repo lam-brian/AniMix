@@ -11,9 +11,47 @@
   height: 100%;
   color: inherit;
   padding: 4px 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .form input {
   font-size: 1.6rem;
   max-width: 22rem;
+}
+
+/* BELOW 640px */
+@media (max-width: 40em) {
+  .form button {
+    padding: 2px 4px;
+  }
+}
+
+/* BELOW 512px */
+@media (max-width: 32em) {
+  .form {
+    height: 2.6rem;
+    border-radius: 2px;
+  }
+
+  .form button {
+    padding: 2px;
+  }
+
+  .form input {
+    max-width: 18.3rem;
+    font-size: 1.4rem;
+  }
+}
+
+/* BELOW 416px */
+@media (max-width: 28em) {
+  .form input {
+    max-width: 9.8rem;
+  }
+
+  .form button {
+    font-size: 1.4rem;
+  }
 }
