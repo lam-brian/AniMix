@@ -19,7 +19,9 @@ function App() {
   const email = useSelector((state) => state.login.email);
 
   useEffect(() => {
-    dispatch(autoLogin());
+    if (!isLoggedIn) {
+      dispatch(autoLogin());
+    }
 
     if (faves.length === 0 && isLoggedIn) {
       dispatch(getFaves(email));

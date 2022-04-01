@@ -5,6 +5,7 @@ import { uiActions } from "../../../store/ui-slice";
 import AnimeListItem from "../AnimeListItem";
 import ErrorMessage from "../../UI/ErrorMessage";
 import styles from "./AnimeFave.module.css";
+import { animeActions } from "../../../store/anime-slice";
 
 const AnimeFaves = () => {
   const dispatch = useDispatch();
@@ -29,6 +30,8 @@ const AnimeFaves = () => {
           message: "No Faves found, start adding some!",
         })
       );
+    } else {
+      dispatch(animeActions.updateAnimes(faves));
     }
   }, [faves, dispatch, isLoggedIn]);
 

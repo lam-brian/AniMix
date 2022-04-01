@@ -22,6 +22,9 @@ const animeSlice = createSlice({
 
       state.animes = animeData;
     },
+    updateAnimes(state, action) {
+      state.animes = action.payload;
+    },
     updateFaves(state, action) {
       state.faves = action.payload;
     },

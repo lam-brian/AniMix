@@ -55,7 +55,7 @@ const AnimeSelected = () => {
     buttonClass = styles.faved;
   } else {
     buttonContent = isFaved ? "Un-Fave" : "Add to Faves!";
-    buttonClass = isFaved && styles.faved;
+    buttonClass = isFaved ? styles.faved : "";
   }
 
   return (
