@@ -59,7 +59,7 @@ const AnimeSelected = () => {
   }
 
   return (
-    <div className={styles.anime}>
+    <div className={`anime ${styles.anime}`}>
       {anime.length !== 0 && (
         <>
           <div className={styles.flex}>

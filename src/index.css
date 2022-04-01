@@ -63,6 +63,16 @@ input::placeholder {
   color: rgba(255, 255, 255, 0.295);
 }
 
+.anime {
+  max-width: 100rem;
+  margin: 0 auto;
+  background-color: var(--blue-shade);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
 .welcome {
   margin-top: 15rem;
   display: flex;
