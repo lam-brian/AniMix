@@ -1,4 +1,4 @@
-.anime {
+/* .anime {
   max-width: 100rem;
   margin: 0 auto;
   background-color: var(--blue-shade);
@@ -6,7 +6,7 @@
   grid-template-columns: 1fr 1fr;
   border-radius: 1rem;
   overflow: hidden;
-}
+} */
 
 .anime img {
   height: 100%;
