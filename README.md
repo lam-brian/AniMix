@@ -2,9 +2,9 @@
 
 [Demo](https://myanimefaves.netlify.app/welcome)
 
-test account
--mail: test@test.com
--ass: 123456
+test account:  
+mail: test@test.com  
+pass: 123456
 
 ## Introduction
 
