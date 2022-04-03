@@ -1,4 +1,4 @@
-# hungrify-app
+# MyAnimeFaves
 
 [Demo](https://myanimefaves.netlify.app/welcome)
 
