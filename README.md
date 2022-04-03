@@ -3,8 +3,8 @@
 [Demo](https://myanimefaves.netlify.app/welcome)
 
 test account
-email: test@test.com
-pass: 123456
+-mail: test@test.com
+-ass: 123456
 
 ## Introduction
 
