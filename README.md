@@ -1,4 +1,4 @@
-# hungrify-app
+# MyAnimeFaves
 
 [Demo](https://myanimefaves.netlify.app/welcome)
 
@@ -8,7 +8,7 @@ pass: 123456
 
 ## Introduction
 
-A single page application created with React, used to search for animes and to personally create your own list of anime favorites.
+A single page application created with React, used to search for anime and to personally create your own list of anime favorites.
 
 ## Technologies Used
 
