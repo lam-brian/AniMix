@@ -49,12 +49,12 @@ export const fetchAnimes = (query, pageOffset = 0, id) => {
   };
 };
 
-const fetchFaves = async (email, anime, id, type) => {
+const fetchFaves = async (email, anime, id, type, token) => {
   const formattedEmail = email.replace(".", "");
 
   let url = `https://myanimefaves-default-rtdb.firebaseio.com/faves/${formattedEmail}${
     id ? `/${id}` : ""
-  }.json`;
+  }.json?auth=${token}`;
 
   let options;
 
@@ -84,10 +84,10 @@ const fetchFaves = async (email, anime, id, type) => {
   return data;
 };
 
-export const getFaves = (email) => {
+export const getFaves = (email, token) => {
   return async (dispatch) => {
     try {
-      const animeData = await fetchFaves(email, null, null, "GET");
+      const animeData = await fetchFaves(email, null, null, "GET", token);
       let foramttedAnimeData = [];
       for (const key in animeData) {
         foramttedAnimeData.push({ ...animeData[key] });
@@ -99,10 +99,10 @@ export const getFaves = (email) => {
   };
 };
 
-export const addFave = (email, anime, id) => {
+export const addFave = (email, anime, id, token) => {
   return async (dispatch) => {
     try {
-      await fetchFaves(email, anime, id, "PUT");
+      await fetchFaves(email, anime, id, "PUT", token);
       dispatch(animeActions.addToFaves(anime[0]));
     } catch (err) {
       console.log(err);
@@ -110,10 +110,10 @@ export const addFave = (email, anime, id) => {
   };
 };
 
-export const removeFave = (email, id) => {
+export const removeFave = (email, id, token) => {
   return async (dispatch) => {
     try {
-      await fetchFaves(email, null, id, "DELETE");
+      await fetchFaves(email, null, id, "DELETE", token);
       dispatch(animeActions.removeFromFaves(id));
     } catch (err) {
       console.log(err);

@@ -17,6 +17,7 @@ function App() {
   const isLoggedIn = useSelector((state) => state.login.isLoggedIn);
   const faves = useSelector((state) => state.anime.faves);
   const email = useSelector((state) => state.login.email);
+  const token = useSelector((state) => state.login.token);
 
   useEffect(() => {
     if (!isLoggedIn) {
@@ -24,9 +25,9 @@ function App() {
     }
 
     if (faves.length === 0 && isLoggedIn) {
-      dispatch(getFaves(email));
+      dispatch(getFaves(email, token));
     }
-  }, [email, dispatch, faves.length, isLoggedIn]);
+  }, [email, dispatch, faves.length, isLoggedIn, token]);
 
   return (
     <Layout>

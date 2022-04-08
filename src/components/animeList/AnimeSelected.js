@@ -16,6 +16,7 @@ const AnimeSelected = () => {
   const faveData = useSelector((state) => state.anime.faves);
   const isLoggedIn = useSelector((state) => state.login.isLoggedIn);
   const email = useSelector((state) => state.login.email);
+  const token = useSelector((state) => state.login.token);
   const query = useSelector((state) => state.anime.query);
   const location = useLocation();
   const id = location.pathname.split("/").pop();
@@ -40,10 +41,10 @@ const AnimeSelected = () => {
 
     if (isFaved) {
       setIsFaved(false);
-      dispatch(removeFave(email, anime[0].id));
+      dispatch(removeFave(email, anime[0].id, token));
     } else {
       setIsFaved(true);
-      dispatch(addFave(email, anime, anime[0].id));
+      dispatch(addFave(email, anime, anime[0].id, token));
     }
   };
 
