@@ -1,6 +1,6 @@
-# MyAnimeFaves
+# AniMix
 
-[Demo](https://myanimefaves.netlify.app/welcome)
+[Demo](https://animix-app.netlify.app/welcome)
 
 test account:  
 mail: test@test.com  

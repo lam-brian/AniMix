@@ -19,7 +19,7 @@ const MainHeader = () => {
     <header className={styles.header}>
       <nav className={styles.nav}>
         <NavLink className={styles.logo} to="/welcome">
-          MyAnimeFaves
+          AniMix
         </NavLink>
         <ul>
           <li>
